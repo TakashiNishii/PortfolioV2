@@ -35,7 +35,7 @@ export const HomeSection = () => {
         )}
 
         <div className="flex flex-col gap-1 w-full text-center items-center md:text-start md:items-start md:w-1/2 md:gap-4">
-          <h2 className="text-2xl font-semibold text-primary">Hello, I'm</h2>
+          <h2 className="text-2xl font-semibold text-primary">{`Hello, I'm`}</h2>
           <h1 className="text-4xl font-bold text-primary">
             Ygor Takashi Nishi
           </h1>
