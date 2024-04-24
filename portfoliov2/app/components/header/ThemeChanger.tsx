@@ -1,9 +1,14 @@
 "use client";
 import { useTheme } from "next-themes";
 import { MoonIcon, SunIcon } from "@heroicons/react/20/solid";
+import { useEffect } from "react";
 
 export const ThemeChanger = () => {
   const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    if (!theme) setTheme("light");
+  }, [theme]);
 
   return (
     <div className="swap swap-rotate text-accent">

@@ -16,11 +16,11 @@ const config: Config = {
     themeRoot: ":root", // The element that receives theme color CSS variables
     theme: {
       fontFamily: {
-        sans: ["Exo 2", "ui-sans-serif", "system-ui"],
+        sans: ["Chakra Petch", "ui-sans-serif", "system-ui"],
         serif: ["ui-serif", "Georgia"],
         mono: ["ui-monospace", "SFMono-Regular"],
-        display: ["Exo 2"],
-        body: ["Exo 2"],
+        display: ["Chakra Petch"],
+        body: ["Chakra Petch"],
       },
     },
     themes: [
@@ -36,6 +36,8 @@ const config: Config = {
 "neutral": "#F6E27F",
         
 "base-100": "#fff8ec",
+
+"base-200": "#000",
         
 "info": "#2563eb",
         
@@ -58,6 +60,8 @@ const config: Config = {
           "neutral": "#CA3C25",
                    
           "base-100": "#292343",
+
+          "base-200": "#fff",
                    
           "info": "#2563eb",
                    

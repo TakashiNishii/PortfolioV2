@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Chakra_Petch } from "next/font/google";
 import "./globals.css";
 import { ThemeProviderWrapper } from "./components/provider/ThemeProviderWrapper";
+
+const expo2 = Chakra_Petch({
+  subsets: ["latin"],
+  weight: "300",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning>
-      <body>
-        <ThemeProviderWrapper>{children}</ThemeProviderWrapper>
+      <body className={expo2.className}>
+        <div className="antialiased bg-base-300 h-screen">
+          <ThemeProviderWrapper>{children}</ThemeProviderWrapper>
+        </div>
       </body>
     </html>
   );
