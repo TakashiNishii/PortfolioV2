@@ -50,7 +50,7 @@ export const HomeSection = () => {
           <button className="btn btn-wide btn-primary">Contact me</button>
         </div>
       </div>
-      <div className="divider divider-secondary text-primary  -mt-16">
+      <div className="divider divider-secondary text-primary  md:-mt-16">
         <span>
           🖱️ Scroll Down <kbd className="kbd kbd-sm bg-secondary">▼</kbd>
         </span>
