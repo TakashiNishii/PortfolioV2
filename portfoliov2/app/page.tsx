@@ -1,3 +1,4 @@
+import { AboutMe } from "./components/about/AboutMe";
 import { Navbar } from "./components/header/Navbar";
 import { HomeSection } from "./components/home/HomeSection";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <main className="flex bg-base-100 min-h-screen flex-col items-center">
       <Navbar />
       <HomeSection />
+      <AboutMe />
     </main>
   );
 }

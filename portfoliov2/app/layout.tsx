@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html suppressHydrationWarning>
+    <html>
       <body className={expo2.className}>
         <div className="antialiased bg-base-300 h-screen">
           <ThemeProviderWrapper>{children}</ThemeProviderWrapper>
