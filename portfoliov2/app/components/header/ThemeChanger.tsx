@@ -8,7 +8,7 @@ export const ThemeChanger = () => {
 
   useEffect(() => {
     if (!theme) setTheme("light");
-  }, [theme]);
+  }, [setTheme, theme]);
 
   return (
     <div className="swap swap-rotate text-accent">

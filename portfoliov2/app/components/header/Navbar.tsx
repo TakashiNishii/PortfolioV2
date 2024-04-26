@@ -38,7 +38,7 @@ export const Navbar = () => {
       setSection(searchParams.get("section") ?? "home");
       router.push(`/#${searchParams.get("section")}`);
     }
-  }, [searchParams]);
+  }, [router, searchParams]);
 
   return (
     <>
