@@ -2,21 +2,27 @@
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { Divider } from "../common/Divider";
+import { useEffect, useState } from "react";
 
 export const HomeSection = () => {
   const { theme, setTheme } = useTheme();
+  const [themeProfile, setThemeProfile] = useState(theme);
+
+  useEffect(() => {
+    setThemeProfile(theme);
+  }, [theme]);
   return (
     <>
       <div
         id="home"
         className="min-h-[calc(100vh-64px)] mt-16 flex flex-col w-full md:-mt-16 justify-center gap-4 md:flex-row md:justify-between items-center"
       >
-        <div className="w-full flex flex-col items-center justify-center md:w-1/2 md:flex-row">
+        <div className="w-full flex flex-col items-center justify-center md:h-96 md:w-1/2 md:flex-row">
           <div className="mask mask-squircle flex-1 max-w-sm max-h-96">
-            {theme && (
+            {themeProfile && (
               <Image
                 src={
-                  theme === "light"
+                  themeProfile === "light"
                     ? "/images/Eu-light.png"
                     : "/images/Eu-dark.png"
                 }
@@ -33,9 +39,9 @@ export const HomeSection = () => {
           <h1 className="text-4xl font-bold text-primary">
             Ygor Takashi Nishi
           </h1>
-          <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col lg:flex-row">
             <h2 className="text-2xl text-primary">Fullstack Developer</h2>
-            <div className="divider divider-vertical md:divider-horizontal my-0" />
+            <div className="divider divider-vertical lg:divider-horizontal my-0" />
             <h2 className="text-2xl text-primary">Mobile Developer</h2>
           </div>
           <h3 className="text-lg text-base-200">
