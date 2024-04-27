@@ -1,7 +1,12 @@
 "use client";
 
 import { ThemeChanger } from "./ThemeChanger";
-import { Bars3Icon, HomeIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  HomeIcon,
+  PhotoIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { Logo } from "./Logo";
 import { useEffect, useRef, useState } from "react";
@@ -43,6 +48,9 @@ export const Navbar = () => {
           <Link className="hover:text-accent" href="/?section=skills">
             Skills
           </Link>
+          <Link className="hover:text-accent" href="/?section=projects">
+            Projects
+          </Link>
           <ThemeChanger />
         </div>
         <div className="swap swap-rotate md:hidden">
@@ -59,7 +67,7 @@ export const Navbar = () => {
       </div>
 
       {open && (
-        <div className="btm-nav font-bold z-50  bg-secondary">
+        <div className="btm-nav font-bold z-50  bg-secondary md:hidden">
           <Link
             className={classNames(section === "home" && "active bg-primary")}
             href="/?section=home"
@@ -80,6 +88,15 @@ export const Navbar = () => {
           >
             <DocumentTextIcon className="h-5 w-5" />
             Skills
+          </Link>
+          <Link
+            className={classNames(
+              section === "projects" && "active bg-primary"
+            )}
+            href="/?section=projects"
+          >
+            <PhotoIcon className="h-5 w-5" />
+            Projects
           </Link>
           <ThemeChanger />
         </div>

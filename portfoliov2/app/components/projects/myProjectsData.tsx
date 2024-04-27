@@ -1,13 +1,10 @@
-import { link } from "fs";
-import { title } from "process";
-
 export const MyProjectsData = [
   {
     id: 1,
     image: "/images/projects/Portfolio.png",
     title: "Portfolio",
     description:
-      "You are here, my personal portfolio built with Next.js and Tailwind CSS.",
+      "You are here! My personal portfolio built with Next.js and Tailwind CSS.",
     link: "/?section=home",
   },
   {
