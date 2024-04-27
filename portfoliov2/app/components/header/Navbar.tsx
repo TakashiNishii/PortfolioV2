@@ -9,13 +9,20 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { Logo } from "./Logo";
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import { useRouter, useSearchParams } from "next/navigation";
 import { UserIcon, DocumentTextIcon } from "@heroicons/react/24/outline";
-import { LanguageIcon, PaperAirplaneIcon } from "@heroicons/react/24/solid";
+import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
+import { LanguageSwitch } from "./LanguageIndex";
+import { useTranslation } from "@/app/i18n/client";
 
-export const Navbar = () => {
+interface NavbarProps {
+  params: { lng: string };
+}
+
+export const Navbar = ({ params: { lng } }: NavbarProps) => {
+  const { t } = useTranslation(lng, "common");
   const [open, setOpen] = useState(false);
   const refCheckbox = useRef<HTMLInputElement>(null);
   const router = useRouter();
@@ -39,20 +46,24 @@ export const Navbar = () => {
     <>
       <div className="navbar shadow-xl  bg-primary fixed md:flex gap-2 p-4 w-full justify-between z-50">
         <Logo />
+        <LanguageSwitch lng={lng} />
         <div className="hidden flex-row gap-4 text-lg text-white md:flex">
-          <Link className="hover:text-accent" href="/?section=home">
-            Home
+          <Link className="hover:text-accent" href={`/${lng}/?section=home`}>
+            {t("Home")}
           </Link>
-          <Link className="hover:text-accent" href="/?section=about">
-            About
+          <Link className="hover:text-accent" href={`/${lng}/?section=about`}>
+            {t("About")}
           </Link>
-          <Link className="hover:text-accent" href="/?section=skills">
+          <Link className="hover:text-accent" href={`/${lng}/?section=skills`}>
             Skills
           </Link>
-          <Link className="hover:text-accent" href="/?section=projects">
+          <Link
+            className="hover:text-accent"
+            href={`/${lng}/?section=projects`}
+          >
             Projects
           </Link>
-          <Link className="hover:text-accent" href="/?section=contact">
+          <Link className="hover:text-accent" href={`/${lng}/?section=contact`}>
             Contact
           </Link>
           <ThemeChanger />

@@ -2,7 +2,7 @@
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { Divider } from "../common/Divider";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { InstagramIcon } from "../icons/InstagramIcon";
 import { LinkedinIcon } from "../icons/LinkedinIcon";
 import { GithubIcon } from "../icons/GithubIcon";
@@ -24,7 +24,7 @@ export const HomeSection = () => {
       >
         <div className="w-full flex flex-col items-center justify-center h-64 md:h-80 md:w-1/2 md:flex-row-reverse">
           <div className="mask mask-squircle flex-1 max-w-sm max-h-64 md:max-h-80">
-            {themeProfile && (
+            {themeProfile ? (
               <Image
                 src={
                   themeProfile === "light"
@@ -35,8 +35,16 @@ export const HomeSection = () => {
                 width={1000}
                 height={1000}
               />
+            ) : (
+              <Image
+                src="https://placehold.co/600x400/png"
+                alt="Ygor Takashi Nishi - Carregando"
+                width={600}
+                height={400}
+              />
             )}
           </div>
+
           <div className="flex flex-row gap-4 mt-4 md:mt-0 md:flex-col">
             <Link href={"https://www.instagram.com/ytakashin/"} target="_blank">
               <InstagramIcon
