@@ -12,13 +12,8 @@ import Link from "next/link";
 import { Logo } from "./Logo";
 import { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
-import {
-  useParams,
-  usePathname,
-  useRouter,
-  useSearchParams,
-} from "next/navigation";
-import { UserIcon } from "@heroicons/react/24/outline";
+import { useRouter, useSearchParams } from "next/navigation";
+import { UserIcon, DocumentTextIcon } from "@heroicons/react/24/outline";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -51,6 +46,9 @@ export const Navbar = () => {
           <Link className="hover:text-accent" href="/?section=about">
             About
           </Link>
+          <Link className="hover:text-accent" href="/?section=skills">
+            Skills
+          </Link>
           <ThemeChanger />
         </div>
         <div className="swap swap-rotate md:hidden">
@@ -81,6 +79,13 @@ export const Navbar = () => {
           >
             <UserIcon className="h-5 w-5" />
             About
+          </Link>
+          <Link
+            className={classNames(section === "skills" && "active bg-primary")}
+            href="/?section=skills"
+          >
+            <DocumentTextIcon className="h-5 w-5" />
+            Skills
           </Link>
           <ThemeChanger />
         </div>

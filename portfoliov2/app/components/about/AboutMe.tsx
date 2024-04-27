@@ -5,10 +5,7 @@ import { Divider } from "../common/Divider";
 
 export const AboutMe = () => {
   return (
-    <div
-      id="about"
-      className="flex flex-col w-full justify-center items-center gap-4 mt-16"
-    >
+    <div className="flex flex-col w-full justify-center items-center gap-4 mt-16">
       <h2 className="text-4xl font-bold text-primary">About me</h2>
       <h3 className="text-lg text-base-200">
         Get to know a little more about me.
@@ -21,7 +18,7 @@ export const AboutMe = () => {
         <MyEducation />
       </div>
 
-      <Divider />
+      <Divider id="skills" />
     </div>
   );
 };
