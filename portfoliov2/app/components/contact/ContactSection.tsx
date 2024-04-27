@@ -13,7 +13,7 @@ export const ContactSection = () => {
         If you want to talk to me, here are some ways to contact me.
       </h3>
 
-      <div className="flex flex-col gap-2 justify-center w-full md:flex-row">
+      <div className="flex flex-col gap-2 justify-center items-center w-full md:flex-row">
         <div className="card w-full max-w-sm bg-base-100 shadow-xl">
           <figure className="px-10 pt-10">
             <EnvelopeIcon className="w-24 h-24 text-primary" />
