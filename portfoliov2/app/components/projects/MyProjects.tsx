@@ -10,7 +10,7 @@ export const MyProjects = () => {
       </h3>
 
       <ProjectList />
-      <Divider />
+      <Divider id="contact" />
     </div>
   );
 };

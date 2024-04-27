@@ -13,6 +13,7 @@ import { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import { useRouter, useSearchParams } from "next/navigation";
 import { UserIcon, DocumentTextIcon } from "@heroicons/react/24/outline";
+import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -50,6 +51,9 @@ export const Navbar = () => {
           </Link>
           <Link className="hover:text-accent" href="/?section=projects">
             Projects
+          </Link>
+          <Link className="hover:text-accent" href="/?section=contact">
+            Contact
           </Link>
           <ThemeChanger />
         </div>
@@ -97,6 +101,13 @@ export const Navbar = () => {
           >
             <PhotoIcon className="h-5 w-5" />
             Projects
+          </Link>
+          <Link
+            className={classNames(section === "contact" && "active bg-primary")}
+            href="/?section=contact"
+          >
+            <PaperAirplaneIcon className="h-5 w-5" />
+            Contact
           </Link>
           <ThemeChanger />
         </div>
