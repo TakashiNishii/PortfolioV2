@@ -20,10 +20,10 @@ export const HomeSection = () => {
     <>
       <div
         id="home"
-        className="min-h-[calc(100vh-64px)] mt-16 flex flex-col w-full md:-mt-16 justify-center gap-4 md:flex-row md:justify-between items-center"
+        className="min-h-[calc(100vh-64px)] mt-20 flex flex-col w-full gap-8 md:-mt-16 justify-center md:gap-4 md:flex-row md:justify-between items-center"
       >
-        <div className="w-full flex flex-col items-center justify-center md:h-96 md:w-1/2 md:flex-row-reverse">
-          <div className="mask mask-squircle flex-1 max-w-sm max-h-96">
+        <div className="w-full flex flex-col items-center justify-center h-64 md:h-80 md:w-1/2 md:flex-row-reverse">
+          <div className="mask mask-squircle flex-1 max-w-sm max-h-64 md:max-h-80">
             {themeProfile && (
               <Image
                 src={

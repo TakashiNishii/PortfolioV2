@@ -13,7 +13,7 @@ import { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import { useRouter, useSearchParams } from "next/navigation";
 import { UserIcon, DocumentTextIcon } from "@heroicons/react/24/outline";
-import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
+import { LanguageIcon, PaperAirplaneIcon } from "@heroicons/react/24/solid";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);

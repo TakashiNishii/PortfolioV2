@@ -1,5 +1,6 @@
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
+import Link from "next/link";
 
 export const PersonalInfo = () => {
   return (
@@ -34,7 +35,9 @@ export const PersonalInfo = () => {
             <div className="badge badge-accent font-bold">TypeScript</div>
             <div className="badge badge-accent font-bold">GraphQL</div>
           </div>
-          <p className="text-xs link text-accent">See more</p>
+          <Link href={"/?section=skills"} className="text-xs link text-accent">
+            See more
+          </Link>
         </div>
       </div>
     </div>
