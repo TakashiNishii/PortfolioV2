@@ -5,7 +5,6 @@ import { MySkillsQuery } from "./mySkills";
 import { Divider } from "../common/Divider";
 
 export const Skills = () => {
-  const mySkills = MySkillsQuery;
   const [filter, setFilter] = useState("All");
   return (
     <div className="flex flex-col w-full justify-center items-center gap-4 mt-16">
@@ -111,7 +110,7 @@ export const Skills = () => {
         And I still learning more technologies to improve my skills. 🚀
       </h3>
 
-      <Divider />
+      <Divider id="projects" />
     </div>
   );
 };

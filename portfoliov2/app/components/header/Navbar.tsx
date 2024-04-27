@@ -1,13 +1,7 @@
 "use client";
 
 import { ThemeChanger } from "./ThemeChanger";
-import {
-  Bars3Icon,
-  CommandLineIcon,
-  HomeIcon,
-  XCircleIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { Bars3Icon, HomeIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { Logo } from "./Logo";
 import { useEffect, useRef, useState } from "react";

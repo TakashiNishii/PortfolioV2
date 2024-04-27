@@ -3,6 +3,7 @@ import { AboutMe } from "./components/about/AboutMe";
 import { Navbar } from "./components/header/Navbar";
 import { HomeSection } from "./components/home/HomeSection";
 import { Skills } from "./components/skills/Skills";
+import { MyProjects } from "./components/projects/MyProjects";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <HomeSection />
       <AboutMe />
       <Skills />
+      <MyProjects />
     </main>
   );
 }
