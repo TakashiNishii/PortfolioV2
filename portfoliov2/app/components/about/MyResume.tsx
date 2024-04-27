@@ -1,4 +1,5 @@
 import { BriefcaseIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 import React from "react";
 
 export const MyResume = () => {
@@ -26,7 +27,14 @@ export const MyResume = () => {
         </p>
 
         <div className="card-actions justify-center md:justify-start">
-          <button className="btn btn-primary">Download CV</button>
+          <Link
+            href={"/curriculo/Curriculo Ygor Takashi Nishi.pdf"}
+            target="_blank"
+            download={true}
+            className="btn btn-primary"
+          >
+            Download CV
+          </Link>
         </div>
       </div>
     </div>
