@@ -1,3 +1,4 @@
+import { UserCircleIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
 export const PersonalInfo = () => {
@@ -13,7 +14,10 @@ export const PersonalInfo = () => {
         />
       </figure>
       <div className="card-body max-w-screen-lg">
-        <h2 className="card-title text-primary text-2xl">Personal info</h2>
+        <h2 className="card-title text-primary text-2xl">
+          <UserCircleIcon className="h-6 w-6" />
+          Personal info
+        </h2>
         <p className="text-lg">
           {` My name is Ygor Takashi Nishi and I'm 23 years old. Actually I'm a
           Frontend Developer, with a passion for solve problems creatively and

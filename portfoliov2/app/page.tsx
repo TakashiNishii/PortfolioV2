@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { AboutMe } from "./components/about/AboutMe";
 import { Navbar } from "./components/header/Navbar";
 import { HomeSection } from "./components/home/HomeSection";
+import { Skills } from "./components/skills/Skills";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
 
       <HomeSection />
       <AboutMe />
+      <Skills />
     </main>
   );
 }
