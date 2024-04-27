@@ -87,7 +87,9 @@ export const HomeSection = () => {
           <h3 className="text-lg text-base-200">
             code lover 👨‍💻, crossfit athlete 🏋️‍♂️ and Corinthians fan ⚽
           </h3>
-          <button className="btn btn-wide btn-primary">Contact me</button>
+          <Link href={"/?section=contact"} className="btn btn-wide btn-primary">
+            Contact me
+          </Link>
         </div>
       </div>
       <Divider
