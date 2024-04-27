@@ -57,16 +57,19 @@ export const Navbar = () => {
           </Link>
           <ThemeChanger />
         </div>
-        <div className="swap swap-rotate md:hidden">
-          <input type="checkbox" ref={refCheckbox} />
-          <Bars3Icon
-            onClick={() => setOpen(!open)}
-            className={classNames("w-8 h-8 swap-off  text-white")}
-          />
-          <XMarkIcon
-            onClick={() => setOpen(!open)}
-            className={classNames("w-8 h-8 swap-on  text-white")}
-          />
+        <div className="flex flex-row gap-4 md:hidden">
+          <ThemeChanger />
+          <div className="swap swap-rotate ">
+            <input type="checkbox" ref={refCheckbox} />
+            <Bars3Icon
+              onClick={() => setOpen(!open)}
+              className={classNames("w-8 h-8 swap-off  text-white")}
+            />
+            <XMarkIcon
+              onClick={() => setOpen(!open)}
+              className={classNames("w-8 h-8 swap-on  text-white")}
+            />
+          </div>
         </div>
       </div>
 
@@ -109,7 +112,6 @@ export const Navbar = () => {
             <PaperAirplaneIcon className="h-5 w-5" />
             Contact
           </Link>
-          <ThemeChanger />
         </div>
       )}
     </>
