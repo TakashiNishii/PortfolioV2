@@ -3,6 +3,11 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import { Divider } from "../common/Divider";
 import { useEffect, useState } from "react";
+import { InstagramIcon } from "../icons/InstagramIcon";
+import { LinkedinIcon } from "../icons/LinkedinIcon";
+import { GithubIcon } from "../icons/GithubIcon";
+import { WhatsappIcon } from "../icons/WhatsappIcon";
+import Link from "next/link";
 
 export const HomeSection = () => {
   const { theme, setTheme } = useTheme();
@@ -17,7 +22,7 @@ export const HomeSection = () => {
         id="home"
         className="min-h-[calc(100vh-64px)] mt-16 flex flex-col w-full md:-mt-16 justify-center gap-4 md:flex-row md:justify-between items-center"
       >
-        <div className="w-full flex flex-col items-center justify-center md:h-96 md:w-1/2 md:flex-row">
+        <div className="w-full flex flex-col items-center justify-center md:h-96 md:w-1/2 md:flex-row-reverse">
           <div className="mask mask-squircle flex-1 max-w-sm max-h-96">
             {themeProfile && (
               <Image
@@ -31,6 +36,41 @@ export const HomeSection = () => {
                 height={1000}
               />
             )}
+          </div>
+          <div className="flex flex-row gap-4 mt-4 md:mt-0 md:flex-col">
+            <Link href={"https://www.instagram.com/ytakashin/"} target="_blank">
+              <InstagramIcon
+                className="w-8 h-8 cursor-pointer hover:opacity-50"
+                fill={themeProfile === "light" ? "#000000" : "#ffffff"}
+              />
+            </Link>
+
+            <Link
+              href={"https://www.linkedin.com/in/takashi-nishi/"}
+              target="_blank"
+            >
+              <LinkedinIcon
+                className="w-8 h-8 cursor-pointer hover:opacity-50"
+                fill={themeProfile === "light" ? "#000000" : "#ffffff"}
+              />
+            </Link>
+
+            <Link href={"https://github.com/TakashiNishii"} target="_blank">
+              <GithubIcon
+                className="w-8 h-8 cursor-pointer hover:opacity-50"
+                fill={themeProfile === "light" ? "#000000" : "#ffffff"}
+              />
+            </Link>
+
+            <Link
+              href={"https://api.whatsapp.com/send?phone=5518996682139"}
+              target="_blank"
+            >
+              <WhatsappIcon
+                className="w-8 h-8 cursor-pointer hover:opacity-50"
+                fill={themeProfile === "light" ? "#000000" : "#ffffff"}
+              />
+            </Link>
           </div>
         </div>
 
