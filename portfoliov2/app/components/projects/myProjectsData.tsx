@@ -12,7 +12,7 @@ export const MyProjectsData = [
     image: "/images/projects/Fiknots.png",
     title: "Fiknots",
     description: "Match plataform for scholars and managers in games NFTs.",
-    link: "fiknots.io",
+    link: "https://fiknots.io",
   },
   {
     id: 3,
