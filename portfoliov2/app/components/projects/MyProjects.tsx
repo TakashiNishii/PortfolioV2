@@ -1,3 +1,4 @@
+import { Divider } from "../common/Divider";
 import { ProjectList } from "./ProjectList";
 
 export const MyProjects = () => {
@@ -9,6 +10,7 @@ export const MyProjects = () => {
       </h3>
 
       <ProjectList />
+      <Divider />
     </div>
   );
 };
