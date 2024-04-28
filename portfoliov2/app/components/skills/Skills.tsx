@@ -26,7 +26,7 @@ export const Skills = () => {
               <input
                 type="radio"
                 name="techs"
-                checked={filter === "All"}
+                defaultChecked={filter === "All"}
                 className="radio radio-primary"
                 onClick={() => setFilter("All")}
               />
@@ -37,7 +37,7 @@ export const Skills = () => {
               <input
                 type="radio"
                 name="techs"
-                checked={filter === "Frontend"}
+                defaultChecked={filter === "Frontend"}
                 className="radio radio-primary"
                 onClick={() => setFilter("Frontend")}
               />
@@ -48,7 +48,7 @@ export const Skills = () => {
               <input
                 type="radio"
                 name="techs"
-                checked={filter === "Backend"}
+                defaultChecked={filter === "Backend"}
                 className="radio radio-primary"
                 onClick={() => setFilter("Backend")}
               />
@@ -59,7 +59,7 @@ export const Skills = () => {
               <input
                 type="radio"
                 name="techs"
-                checked={filter === "Mobile"}
+                defaultChecked={filter === "Mobile"}
                 className="radio radio-primary"
                 onClick={() => setFilter("Mobile")}
               />
@@ -70,7 +70,7 @@ export const Skills = () => {
               <input
                 type="radio"
                 name="techs"
-                checked={filter === "Database"}
+                defaultChecked={filter === "Database"}
                 className="radio radio-primary"
                 onClick={() => setFilter("Database")}
               />
@@ -81,7 +81,7 @@ export const Skills = () => {
               <input
                 type="radio"
                 name="techs"
-                checked={filter === "Others"}
+                defaultChecked={filter === "Others"}
                 className="radio radio-primary"
                 onClick={() => setFilter("Others")}
               />
@@ -91,11 +91,10 @@ export const Skills = () => {
         </div>
         <select
           onChange={(e) => setFilter(e.target.value)}
+          value={filter}
           className="select select-bordered w-full md:hidden"
         >
-          <option value={"All"} disabled selected>
-            All
-          </option>
+          <option value={"All"}>All</option>
           <option value={"Frontend"}>Frontend</option>
           <option value={"Backend"}>Backend</option>
           <option value={"Mobile"}>Mobile</option>

@@ -9,13 +9,20 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { Logo } from "./Logo";
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import { useRouter, useSearchParams } from "next/navigation";
 import { UserIcon, DocumentTextIcon } from "@heroicons/react/24/outline";
-import { LanguageIcon, PaperAirplaneIcon } from "@heroicons/react/24/solid";
+import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
+import { LanguageSwitch } from "./LanguageIndex";
+import { useTranslation } from "@/app/i18n/client";
 
-export const Navbar = () => {
+interface NavbarProps {
+  params: { lng: string };
+}
+
+export const Navbar = ({ params: { lng } }: NavbarProps) => {
+  const { t } = useTranslation(lng, "common");
   const [open, setOpen] = useState(false);
   const refCheckbox = useRef<HTMLInputElement>(null);
   const router = useRouter();
@@ -40,25 +47,32 @@ export const Navbar = () => {
       <div className="navbar shadow-xl  bg-primary fixed md:flex gap-2 p-4 w-full justify-between z-50">
         <Logo />
         <div className="hidden flex-row gap-4 text-lg text-white md:flex">
-          <Link className="hover:text-accent" href="/?section=home">
-            Home
+          <Link className="hover:text-accent" href={`/${lng}/?section=home`}>
+            {t("Home")}
           </Link>
-          <Link className="hover:text-accent" href="/?section=about">
-            About
+          <Link className="hover:text-accent" href={`/${lng}/?section=about`}>
+            {t("About")}
           </Link>
-          <Link className="hover:text-accent" href="/?section=skills">
-            Skills
+          <Link className="hover:text-accent" href={`/${lng}/?section=skills`}>
+            {t("Skills")}
           </Link>
-          <Link className="hover:text-accent" href="/?section=projects">
-            Projects
+          <Link
+            className="hover:text-accent"
+            href={`/${lng}/?section=projects`}
+          >
+            {t("Projects")}
           </Link>
-          <Link className="hover:text-accent" href="/?section=contact">
-            Contact
+          <Link className="hover:text-accent" href={`/${lng}/?section=contact`}>
+            {t("Contact")}
           </Link>
           <ThemeChanger />
+
+          <LanguageSwitch lng={lng} />
         </div>
         <div className="flex flex-row gap-4 md:hidden">
           <ThemeChanger />
+
+          <LanguageSwitch lng={lng} />
           <div className="swap swap-rotate ">
             <input type="checkbox" ref={refCheckbox} />
             <Bars3Icon
@@ -80,21 +94,21 @@ export const Navbar = () => {
             href="/?section=home"
           >
             <HomeIcon className="h-5 w-5" />
-            Home
+            {t("Home")}
           </Link>
           <Link
             className={classNames(section === "about" && "active bg-primary")}
             href="/?section=about"
           >
             <UserIcon className="h-5 w-5" />
-            About
+            {t("About")}
           </Link>
           <Link
             className={classNames(section === "skills" && "active bg-primary")}
             href="/?section=skills"
           >
             <DocumentTextIcon className="h-5 w-5" />
-            Skills
+            {t("Skills")}
           </Link>
           <Link
             className={classNames(
@@ -103,14 +117,14 @@ export const Navbar = () => {
             href="/?section=projects"
           >
             <PhotoIcon className="h-5 w-5" />
-            Projects
+            {t("Projects")}
           </Link>
           <Link
             className={classNames(section === "contact" && "active bg-primary")}
             href="/?section=contact"
           >
             <PaperAirplaneIcon className="h-5 w-5" />
-            Contact
+            {t("Contact")}
           </Link>
         </div>
       )}

@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { Logo } from "../header/Logo";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { InstagramIcon } from "../icons/InstagramIcon";
 import { LinkedinIcon } from "../icons/LinkedinIcon";
 import { GithubIcon } from "../icons/GithubIcon";
@@ -21,39 +21,41 @@ export const Footer = () => {
         <Logo />
         <p>Copyright © 2024 - All right reserved</p>
       </aside>
-      <nav className="flex flex-row justify-center w-full gap-4 md:justify-end">
-        <Link href={"https://www.instagram.com/ytakashin/"} target="_blank">
-          <InstagramIcon
-            className="w-8 h-8 cursor-pointer hover:opacity-50"
-            fill={themeProfile === "light" ? "#000000" : "#ffffff"}
-          />
-        </Link>
-        <Link
-          href={"https://www.linkedin.com/in/takashi-nishi/"}
-          target="_blank"
-        >
-          <LinkedinIcon
-            className="w-8 h-8 cursor-pointer hover:opacity-50"
-            fill={themeProfile === "light" ? "#000000" : "#ffffff"}
-          />
-        </Link>
-        <Link href={"https://github.com/TakashiNishii"} target="_blank">
-          <GithubIcon
-            className="w-8 h-8 cursor-pointer hover:opacity-50"
-            fill={themeProfile === "light" ? "#000000" : "#ffffff"}
-          />
-        </Link>
+      <Suspense fallback={<div>Loading...</div>}>
+        <nav className="flex flex-row justify-center w-full gap-4 md:justify-end">
+          <Link href={"https://www.instagram.com/ytakashin/"} target="_blank">
+            <InstagramIcon
+              className="w-8 h-8 cursor-pointer hover:opacity-50"
+              fill={themeProfile === "light" ? "#000000" : "#ffffff"}
+            />
+          </Link>
+          <Link
+            href={"https://www.linkedin.com/in/takashi-nishi/"}
+            target="_blank"
+          >
+            <LinkedinIcon
+              className="w-8 h-8 cursor-pointer hover:opacity-50"
+              fill={themeProfile === "light" ? "#000000" : "#ffffff"}
+            />
+          </Link>
+          <Link href={"https://github.com/TakashiNishii"} target="_blank">
+            <GithubIcon
+              className="w-8 h-8 cursor-pointer hover:opacity-50"
+              fill={themeProfile === "light" ? "#000000" : "#ffffff"}
+            />
+          </Link>
 
-        <Link
-          href={"https://api.whatsapp.com/send?phone=5518996682139"}
-          target="_blank"
-        >
-          <WhatsappIcon
-            className="w-8 h-8 cursor-pointer hover:opacity-50"
-            fill={themeProfile === "light" ? "#000000" : "#ffffff"}
-          />
-        </Link>
-      </nav>
+          <Link
+            href={"https://api.whatsapp.com/send?phone=5518996682139"}
+            target="_blank"
+          >
+            <WhatsappIcon
+              className="w-8 h-8 cursor-pointer hover:opacity-50"
+              fill={themeProfile === "light" ? "#000000" : "#ffffff"}
+            />
+          </Link>
+        </nav>
+      </Suspense>
     </footer>
   );
 };

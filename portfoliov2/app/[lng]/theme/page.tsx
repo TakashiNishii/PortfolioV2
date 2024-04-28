@@ -1,4 +1,4 @@
-import { ThemeChanger } from "../components/header/ThemeChanger";
+import { ThemeChanger } from "../../components/header/ThemeChanger";
 
 export default function Home() {
   return (
