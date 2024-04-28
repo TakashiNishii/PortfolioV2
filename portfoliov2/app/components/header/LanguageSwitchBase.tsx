@@ -1,6 +1,6 @@
+import { LanguageIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
 import { Trans } from "react-i18next/TransWithoutContext";
-import { languages } from "../../i18n/settings";
 
 interface LanguageSwitcherProps {
   lng: string;
@@ -10,19 +10,29 @@ interface LanguageSwitcherProps {
 export const LanguageSwitchBase = ({ t, lng }: LanguageSwitcherProps) => {
   return (
     <div>
-      <Trans i18nKey="languageSwitcher" t={t}>
-        Switch from <strong>{lng}</strong> to:{" "}
+      <Trans t={t}>
+        <div className="dropdown dropdown-end flex">
+          <label
+            tabIndex={0}
+            className="btn btn-ghost btn-xs text-white hover:bg-primary hover:text-accent"
+          >
+            <LanguageIcon className="h-6 w-6 " />
+          </label>
+
+          <ul
+            id="moreOptions"
+            tabIndex={0}
+            className="dropdown-content bg-secondary z-[1] gap-2 menu p-2 shadow  rounded-box w-52"
+          >
+            <li>
+              <Link href={"/pt"}>Português</Link>
+            </li>
+            <li>
+              <Link href={"/en"}>English</Link>
+            </li>
+          </ul>
+        </div>
       </Trans>
-      {languages
-        .filter((l) => lng !== l)
-        .map((l, index) => {
-          return (
-            <span key={l}>
-              {index > 0 && " or "}
-              <Link href={`/${l}`}>{l}</Link>
-            </span>
-          );
-        })}
     </div>
   );
 };

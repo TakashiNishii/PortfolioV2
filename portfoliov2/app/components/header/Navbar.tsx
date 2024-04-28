@@ -46,7 +46,6 @@ export const Navbar = ({ params: { lng } }: NavbarProps) => {
     <>
       <div className="navbar shadow-xl  bg-primary fixed md:flex gap-2 p-4 w-full justify-between z-50">
         <Logo />
-        <LanguageSwitch lng={lng} />
         <div className="hidden flex-row gap-4 text-lg text-white md:flex">
           <Link className="hover:text-accent" href={`/${lng}/?section=home`}>
             {t("Home")}
@@ -55,21 +54,25 @@ export const Navbar = ({ params: { lng } }: NavbarProps) => {
             {t("About")}
           </Link>
           <Link className="hover:text-accent" href={`/${lng}/?section=skills`}>
-            Skills
+            {t("Skills")}
           </Link>
           <Link
             className="hover:text-accent"
             href={`/${lng}/?section=projects`}
           >
-            Projects
+            {t("Projects")}
           </Link>
           <Link className="hover:text-accent" href={`/${lng}/?section=contact`}>
-            Contact
+            {t("Contact")}
           </Link>
           <ThemeChanger />
+
+          <LanguageSwitch lng={lng} />
         </div>
         <div className="flex flex-row gap-4 md:hidden">
           <ThemeChanger />
+
+          <LanguageSwitch lng={lng} />
           <div className="swap swap-rotate ">
             <input type="checkbox" ref={refCheckbox} />
             <Bars3Icon
@@ -91,21 +94,21 @@ export const Navbar = ({ params: { lng } }: NavbarProps) => {
             href="/?section=home"
           >
             <HomeIcon className="h-5 w-5" />
-            Home
+            {t("Home")}
           </Link>
           <Link
             className={classNames(section === "about" && "active bg-primary")}
             href="/?section=about"
           >
             <UserIcon className="h-5 w-5" />
-            About
+            {t("About")}
           </Link>
           <Link
             className={classNames(section === "skills" && "active bg-primary")}
             href="/?section=skills"
           >
             <DocumentTextIcon className="h-5 w-5" />
-            Skills
+            {t("Skills")}
           </Link>
           <Link
             className={classNames(
@@ -114,14 +117,14 @@ export const Navbar = ({ params: { lng } }: NavbarProps) => {
             href="/?section=projects"
           >
             <PhotoIcon className="h-5 w-5" />
-            Projects
+            {t("Projects")}
           </Link>
           <Link
             className={classNames(section === "contact" && "active bg-primary")}
             href="/?section=contact"
           >
             <PaperAirplaneIcon className="h-5 w-5" />
-            Contact
+            {t("Contact")}
           </Link>
         </div>
       )}

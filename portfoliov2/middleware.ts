@@ -1,3 +1,4 @@
+"use server"
 import { NextResponse } from 'next/server'
 import acceptLanguage from 'accept-language'
 import { fallbackLng, languages, cookieName } from './app/i18n/settings'
@@ -6,7 +7,7 @@ acceptLanguage.languages(languages)
 
 export const config = {
   // matcher: '/:lng*'
-  matcher: ['/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js).*)']
+  matcher: ["/((?!api|_next/static|_next/image|assets|favicon.ico).*)"],
 }
 
 export function middleware(req: any) {
