@@ -11,6 +11,7 @@ const expo2 = Chakra_Petch({
 export const metadata: Metadata = {
   title: "Ygor Takashi Nishi - Portfolio",
   description: "Know more about me and my projects!",
+  icons: "/images/Logo-light.png",
   openGraph: {
     images: [
       {
@@ -30,6 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning={true}>
+      <head></head>
       <body className={expo2.className}>
         <div className="antialiased bg-base-300 h-screen">
           <ThemeProviderWrapper>{children}</ThemeProviderWrapper>
