@@ -11,6 +11,16 @@ const expo2 = Chakra_Petch({
 export const metadata: Metadata = {
   title: "Ygor Takashi Nishi - Portfolio",
   description: "Know more about me and my projects!",
+  openGraph: {
+    images: [
+      {
+        url: "/images/Logo-light.png",
+        width: 800,
+        height: 600,
+        alt: "Ygor Takashi Nishi - Portfolio",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
