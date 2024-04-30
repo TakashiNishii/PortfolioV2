@@ -11,7 +11,9 @@ const expo2 = Chakra_Petch({
 export const metadata: Metadata = {
   title: "Ygor Takashi Nishi - Portfolio",
   description: "Know more about me and my projects!",
-  icons: "/images/Logo-light.png",
+  icons: {
+    icon: "/images/Logo-light.png",
+  },
   openGraph: {
     images: [
       {
