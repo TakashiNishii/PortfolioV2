@@ -17,12 +17,16 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: "/images/Logo-light.png",
+        url: "/images/eu-banner.png",
         width: 800,
         height: 600,
         alt: "Ygor Takashi Nishi - Portfolio",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: "/images/eu-banner.png",
   },
 };
 
