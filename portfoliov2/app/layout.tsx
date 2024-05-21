@@ -15,18 +15,11 @@ export const metadata: Metadata = {
     icon: "/images/Logo-light.png",
   },
   openGraph: {
-    images: [
-      {
-        url: "/images/eu-banner.png",
-        width: 800,
-        height: 600,
-        alt: "Ygor Takashi Nishi - Portfolio",
-      },
-    ],
+    images: ["/images/eu-banner.jpeg"],
   },
   twitter: {
     card: "summary_large_image",
-    images: "/images/eu-banner.png",
+    images: ["/images/eu-banner.jpeg"],
   },
 };
 
