@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Chakra_Petch } from "next/font/google";
 import "./globals.css";
 import { ThemeProviderWrapper } from "./components/provider/ThemeProviderWrapper";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const expo2 = Chakra_Petch({
   subsets: ["latin"],
@@ -34,6 +36,8 @@ export default function RootLayout({
         <div className="antialiased bg-base-300 h-screen">
           <ThemeProviderWrapper>{children}</ThemeProviderWrapper>
         </div>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
