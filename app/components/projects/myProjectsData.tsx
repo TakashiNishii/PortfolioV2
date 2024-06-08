@@ -1,6 +1,14 @@
+let id = 0;
 export const MyProjectsData = [
   {
-    id: 1,
+    id: id++,
+    image: "/images/projects/MoonLetters.png",
+    title: "🔮 Moon Letters",
+    description: "A personal app to view your horoscope",
+    link: "https://moon-letters.vercel.app",
+  },
+  {
+    id: id++,
     image: "/images/projects/Portfolio.png",
     title: "Portfolio",
     description:
@@ -8,21 +16,21 @@ export const MyProjectsData = [
     link: "/?section=home",
   },
   {
-    id: 2,
+    id: id++,
     image: "/images/projects/Fiknots.png",
     title: "Fiknots",
     description: "Match plataform for scholars and managers in games NFTs.",
     link: "https://fiknots.io",
   },
   {
-    id: 3,
+    id: id++,
     image: "/images/projects/euplantoofuturo.png",
     title: "Eu Planto o Futuro",
     description: "Website for a social project that plants trees in Brazil.",
     link: "https://euplantoofuturo.ciarama.com.br",
   },
   {
-    id: 4,
+    id: id++,
     image: "/images/projects/Cartaovisita.png",
     title: "Ciarama Cartão Digital",
     description:
@@ -30,42 +38,42 @@ export const MyProjectsData = [
     link: "https://cartao.ciarama.com.br/?cod=79RUUN",
   },
   {
-    id: 5,
+    id: id++,
     image: "/images/projects/moveit.png",
     title: "Move.it",
     description: "Pomodoro technique app with exercises for programmers.",
     link: "https://moveit-nine-bice.vercel.app",
   },
   {
-    id: 6,
+    id: id++,
     image: "/images/projects/AparecidaNutricao.png",
     title: "Aparecida Nutrição",
     description: "Webapp for BMI calculation",
     link: "https://aparecida-nutricao-ten.vercel.app",
   },
   {
-    id: 7,
+    id: id++,
     image: "/images/projects/ImplementosCiarama.png",
     title: "Implementos Ciarama",
     description: "E-commerce for agricultural implements.",
     link: "https://ofertas.ciarama.com.br/?categoria=S",
   },
   {
-    id: 8,
+    id: id++,
     image: "/images/projects/AluraBarber.png",
     title: "Alura Barber",
     description: "Barbershop website from Alura course.",
     link: "https://alurabarbershop.netlify.app",
   },
   {
-    id: 9,
+    id: id++,
     image: "/images/projects/SecretWords.png",
     title: "Secret Words",
     description: "Word guessing game with hints.",
     link: "https://secret-words-five.vercel.app",
   },
   {
-    id: 10,
+    id: id++,
     image: "/images/projects/Antipatterns.png",
     title: "Antipatterns",
     description:
@@ -73,7 +81,7 @@ export const MyProjectsData = [
     link: "https://antipatterns.netlify.app/",
   },
   {
-    id: 11,
+    id: id++,
     image: "/images/projects/PortfolioV1.png",
     title: "Portfolio V1",
     description: "My first project and portfolio, built with HTML and CSS.",
