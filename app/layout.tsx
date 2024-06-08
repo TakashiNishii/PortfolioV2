@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     icon: "/images/Logo-light.png",
   },
   openGraph: {
-    images: ["/images/eu-banner.jpeg"],
+    images: ["https://avatars.githubusercontent.com/u/49199986?v=4"],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/images/eu-banner.jpeg"],
+    images: ["https://avatars.githubusercontent.com/u/49199986?v=4"],
   },
 };
 
@@ -30,7 +30,6 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning={true}>
-      <head></head>
       <body className={expo2.className}>
         <div className="antialiased bg-base-300 h-screen">
           <ThemeProviderWrapper>{children}</ThemeProviderWrapper>

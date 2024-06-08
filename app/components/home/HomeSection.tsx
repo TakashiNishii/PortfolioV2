@@ -34,6 +34,7 @@ export const HomeSection = () => {
                 alt="Ygor Takashi Nishi"
                 width={1000}
                 height={1000}
+                className="max-w-full max-h-full object-contain"
               />
             )}
           </div>
