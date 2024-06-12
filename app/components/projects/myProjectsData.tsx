@@ -2,6 +2,13 @@ let id = 0;
 export const MyProjectsData = [
   {
     id: id++,
+    image: "/images/projects/poemasvisuais.png",
+    title: "Poemas Visuais - 29AA 2024",
+    description: "Virtual exhibition of visual poems from a school class.",
+    link: "https://poemasvisuais-29aa2024.vercel.app",
+  },
+  {
+    id: id++,
     image: "/images/projects/MoonLetters.png",
     title: "🔮 Moon Letters",
     description: "A personal app to view your horoscope",
