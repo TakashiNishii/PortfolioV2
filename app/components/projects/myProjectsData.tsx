@@ -1,5 +1,14 @@
+import { link } from "fs";
+
 let id = 0;
 export const MyProjectsData = [
+  {
+    id: id++,
+    image: "/images/projects/AZtec.png",
+    title: "AZtec",
+    description: "A institutional website for a company that make solutions for engineering and maintenance agroindustrial.",
+    link: "https://www.aztec.ind.br"
+  },
   {
     id: id++,
     image: "/images/projects/poemasvisuais.png",
