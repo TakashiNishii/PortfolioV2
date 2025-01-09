@@ -4,6 +4,13 @@ let id = 0;
 export const MyProjectsData = [
   {
     id: id++,
+    image: "/images/projects/DefiStation.png",
+    title: "DeFi Station",
+    description: "A dashboard to track pools liquidity on DeFi protocols.",
+    link: "https://www.defistation.xyz/pools",
+  },
+  {
+    id: id++,
     image: "/images/projects/AZtec.png",
     title: "AZtec",
     description: "A institutional website for a company that make solutions for engineering and maintenance agroindustrial.",
