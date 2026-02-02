@@ -1,7 +1,13 @@
-import { link } from "fs";
 
 let id = 0;
 export const MyProjectsData = [
+  {
+    id: id++,
+    image: "/images/projects/strangerthingsxp.png",
+    title: "Stranger Things Experience",
+    description: "A case study of landing page for the Stranger Things Experience event.",
+    link: "https://strangerthingsexperience.netlify.app"
+  },
   {
     id: id++,
     image: "/images/projects/DefiStation.png",

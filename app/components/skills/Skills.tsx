@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { SkillsList } from "./SkillsList";
-import { MySkillsQuery } from "./mySkills";
 import { Divider } from "../common/Divider";
 
 export const Skills = () => {
@@ -81,6 +80,17 @@ export const Skills = () => {
               <input
                 type="radio"
                 name="techs"
+                checked={filter === "Cloud"}
+                className="radio radio-primary"
+                onClick={() => setFilter("Cloud")}
+              />
+              <span className="label-text font-bold">Cloud</span>
+            </label>
+
+            <label className="label justify-start cursor-pointer gap-2">
+              <input
+                type="radio"
+                name="techs"
                 checked={filter === "Others"}
                 className="radio radio-primary"
                 onClick={() => setFilter("Others")}
@@ -100,7 +110,7 @@ export const Skills = () => {
           <option value={"Backend"}>Backend</option>
           <option value={"Mobile"}>Mobile</option>
           <option value={"Database"}>Database</option>
-          <option value={"Others"}>Others</option>
+          <option value={"Cloud"}>Cloud</option>
         </select>
 
         <SkillsList filter={filter} setFilter={setFilter} />

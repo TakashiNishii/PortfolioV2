@@ -19,7 +19,7 @@ export const Footer = () => {
     <footer className="footer items-center p-4 bg-primary  mt-16">
       <aside className="items-center text-center justify-center flex flex-col w-full md:flex-row md:justify-start ">
         <Logo />
-        <p>Copyright © 2024 - All right reserved</p>
+        <p>Copyright © 2026 - All right reserved</p>
       </aside>
       <nav className="flex flex-row justify-center w-full gap-4 md:justify-end">
         <Link href={"https://www.instagram.com/ytakashin/"} target="_blank">

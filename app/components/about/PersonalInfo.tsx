@@ -20,13 +20,13 @@ export const PersonalInfo = () => {
           Personal info
         </h2>
         <p className="text-lg">
-          {` My name is Ygor Takashi Nishi and I'm 24 years old. Actually I'm a
+          {` My name is Ygor Takashi Nishi and I'm 25 years old. Actually I'm a
           Frontend Developer, with a passion for solve problems creatively and
-          intelligently. I have 4 years of experience in the area, and I'm
+          intelligently. I have 5 years of experience in the area, and I'm
           always looking for new challenges and opportunities to grow.`}
         </p>
         <div className="card-actions flex-col justify-end">
-          <p className="text-lg font-bol text-accent">
+          <p className="text-lg font-bold text-accent">
             My principal skills are:
           </p>
 

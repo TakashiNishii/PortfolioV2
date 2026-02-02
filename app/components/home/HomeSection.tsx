@@ -86,7 +86,7 @@ export const HomeSection = () => {
             <h2 className="text-2xl text-primary">Mobile Developer</h2>
           </div>
           <h3 className="text-lg text-base-200">
-            code lover 👨‍💻, crossfit athlete 🏋️‍♂️ and Corinthians fan ⚽
+            code lover 👨‍💻, robotic enthusiast 🤖 and Corinthians fan ⚽
           </h3>
           <Link href={"/?section=contact"} className="btn btn-wide btn-primary">
             Contact me
