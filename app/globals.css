@@ -71,3 +71,9 @@ html {
 .btn {
   text-transform: none;
 }
+
+/* SplitText-like characters used for letter-by-letter animations */
+.split-char {
+  display: inline-block;
+  white-space: pre;
+}
