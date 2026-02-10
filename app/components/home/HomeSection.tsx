@@ -110,7 +110,7 @@ export const HomeSection = () => {
     <>
       <div
         id="home"
-        className="min-h-[calc(100vh-64px)] mt-20 flex flex-col w-full gap-8 md:-mt-16 justify-center md:gap-4 md:flex-row md:justify-between items-center"
+        className="min-h-[calc(80vh)] mt-20 flex flex-col w-full gap-8 justify-center md:gap-4 md:flex-row md:justify-between items-center"
       >
         <div className="w-full flex flex-col items-center justify-center h-64 md:h-80 md:w-1/2 md:flex-row-reverse">
           <div ref={image} className="mask mask-squircle flex-1 max-w-sm max-h-64 md:max-h-80">
@@ -185,7 +185,7 @@ export const HomeSection = () => {
       </div>
       <Divider
         id="about"
-        classNamesExtra="divider-secondary text-primary   md:-mt-16"
+        classNamesExtra="divider-secondary text-primary "
       >
         <span>
           🖱️ Scroll Down <kbd className="kbd kbd-sm bg-secondary">▼</kbd>
