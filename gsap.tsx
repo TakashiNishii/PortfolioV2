@@ -55,19 +55,12 @@ export function initScrollSmoother() {
   }
 }
 
-// Preloader
-export function showPreloader() {
-  if (typeof window === "undefined") return;
-
-  const preloader = document.getElementById("preloader");
-  if (preloader) {
-    preloader.style.display = "block";
-  }
-}
-
 // export anything that you might need a reference to
 export * from "gsap/dist/gsap";
 export * from "gsap/dist/Draggable";
 export * from "gsap/dist/TextPlugin";
 export * from "gsap/dist/ScrollSmoother";
 export * from "gsap/dist/ScrollTrigger";
+
+// Export gsap as default
+export { gsap as default } from "gsap/dist/gsap";

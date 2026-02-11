@@ -10,10 +10,9 @@ import { initScrollSmoother } from '../../../gsap'
 
 const BodyContent = () => {
   useEffect(() => {
-    // Initialize ScrollSmoother after component mounts
     const timer = setTimeout(() => {
       initScrollSmoother();
-    }, 100);
+    }, 2400); // 2s preloader + 0.4s fade out
 
     return () => {
       clearTimeout(timer);

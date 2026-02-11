@@ -23,7 +23,8 @@ export const HomeSection = () => {
   }, [theme]);
 
   useGSAP(() => {
-    // Wait a bit for ScrollSmoother to be ready
+    // Wait for preloader to finish and content to appear (~1.8s)
+    // Animations start right when content fades in
     const timer = setTimeout(() => {
       // Split text into individual span elements for a letter-by-letter animation
       if (infoText.current) {
@@ -96,7 +97,7 @@ export const HomeSection = () => {
           }
         );
       }
-    }, 10);
+    }, 1800); // Start when content appears (~1.3s content fade in starts, + 0.5s buffer)
 
     return () => {
       clearTimeout(timer);

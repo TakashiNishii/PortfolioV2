@@ -37,7 +37,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <div className="navbar shadow-xl  bg-primary fixed md:flex gap-2 p-4 w-full justify-between z-50">
+      <div className="navbar shadow-xl bg-primary fixed top-0 left-0 right-0 md:flex gap-2 p-4 w-full justify-between z-50">
         <Logo />
         <div className="hidden flex-row gap-4 text-lg text-white md:flex">
           <Link className="hover:text-accent" href="/?section=home">
