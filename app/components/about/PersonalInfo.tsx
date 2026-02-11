@@ -1,10 +1,12 @@
+"use client";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
+import { forwardRef } from "react";
 
-export const PersonalInfo = () => {
+export const PersonalInfo = forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <div className="card p-2 md:card-side bg-base-100 shadow-xl w-full md:w-3/4">
+    <div ref={ref} className="card p-2 md:card-side bg-base-100 shadow-xl w-full md:w-3/4">
       <figure>
         <Image
           src="/images/Eu-about.png"
@@ -42,4 +44,6 @@ export const PersonalInfo = () => {
       </div>
     </div>
   );
-};
+});
+
+PersonalInfo.displayName = "PersonalInfo";

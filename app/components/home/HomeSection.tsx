@@ -10,6 +10,7 @@ import { WhatsappIcon } from "../icons/WhatsappIcon";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from 'gsap';
+import { animateSplitText } from '../common/textAnimation';
 
 export const HomeSection = () => {
   const { theme } = useTheme();
@@ -23,88 +24,51 @@ export const HomeSection = () => {
   }, [theme]);
 
   useGSAP(() => {
-    // Wait for preloader to finish and content to appear (~1.8s)
-    // Animations start right when content fades in
-    const timer = setTimeout(() => {
-      // Split text into individual span elements for a letter-by-letter animation
-      if (infoText.current) {
-        const el = infoText.current;
-        const original = el.textContent || "";
-        const trimmed = original.trim();
-        // store original for cleanup
-        el.dataset.originalText = original;
-        el.innerHTML = trimmed
-          .split("")
-          .map((char) => (char === " " ? `<span class="split-char">&nbsp;</span>` : `<span class="split-char">${char}</span>`))
-          .join("");
+    // Split text animation usando função reutilizável
+    if (infoText.current) {
+      animateSplitText(infoText.current);
+    }
 
-        const chars = el.querySelectorAll(".split-char");
-        gsap.fromTo(
-          chars,
-          { y: 20, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.6,
-            ease: "power3.out",
-            stagger: 0.03,
-            scrollTrigger: {
-              trigger: el,
-              start: "top 80%",
-              end: "bottom 60%",
-              toggleActions: "play none none reverse",
-              scroller: "#smooth-wrapper",
-            },
-          }
-        );
-      }
-
-      if (socialIcons.current) {
-        gsap.fromTo(
-          socialIcons.current,
-          { y: 100, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.5,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: socialIcons.current,
-              start: "top 80%",
-              end: "bottom 60%",
-              toggleActions: "play none none reverse",
-              scroller: "#smooth-wrapper",
-            },
-          }
-        );
-      }
-      if (image.current) {
-        gsap.fromTo(
-          image.current,
-          { y: 100, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.5,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: image.current,
-              start: "top 80%",
-              end: "bottom 60%",
-              toggleActions: "play none none reverse",
-              scroller: "#smooth-wrapper",
-            },
-          }
-        );
-      }
-    }, 1800); // Start when content appears (~1.3s content fade in starts, + 0.5s buffer)
+    if (socialIcons.current) {
+      gsap.fromTo(
+        socialIcons.current,
+        { y: 100, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.5,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: socialIcons.current,
+            start: "top 80%",
+            end: "bottom 60%",
+            toggleActions: "play none none reverse",
+            scroller: "#smooth-wrapper",
+          },
+        }
+      );
+    }
+    if (image.current) {
+      gsap.fromTo(
+        image.current,
+        { y: 100, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.5,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: image.current,
+            start: "top 80%",
+            end: "bottom 60%",
+            toggleActions: "play none none reverse",
+            scroller: "#smooth-wrapper",
+          },
+        }
+      );
+    }
 
     return () => {
-      clearTimeout(timer);
-      if (infoText.current && infoText.current.dataset.originalText) {
-        infoText.current.innerHTML = infoText.current.dataset.originalText;
-        delete infoText.current.dataset.originalText;
-      }
     };
   }, [image, infoText]);
   return (
