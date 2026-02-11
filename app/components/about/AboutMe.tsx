@@ -56,7 +56,6 @@ export const AboutMe = () => {
             toggleActions: "play none none reverse",
             scroller: "#smooth-wrapper",
             scrub: true,
-            markers: true,
             invalidateOnRefresh: true,
           },
         }

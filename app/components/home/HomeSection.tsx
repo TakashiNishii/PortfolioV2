@@ -24,7 +24,6 @@ export const HomeSection = () => {
   }, [theme]);
 
   useGSAP(() => {
-    // Split text animation usando função reutilizável
     if (infoText.current) {
       animateSplitText(infoText.current);
     }
@@ -67,10 +66,8 @@ export const HomeSection = () => {
         }
       );
     }
-
-    return () => {
-    };
-  }, [image, infoText]);
+    return () => { };
+  }, [image, infoText, socialIcons]);
   return (
     <>
       <div
@@ -140,9 +137,6 @@ export const HomeSection = () => {
             <div className="divider divider-vertical lg:divider-horizontal my-0" />
             <h2 className="text-2xl text-primary">Mobile Developer</h2>
           </div>
-          <h3 className="text-lg text-base-200">
-            code lover 👨‍💻, robotic enthusiast 🤖 and Corinthians fan ⚽
-          </h3>
           <Link href={"/?section=contact"} className="btn btn-wide btn-primary">
             Contact me
           </Link>
