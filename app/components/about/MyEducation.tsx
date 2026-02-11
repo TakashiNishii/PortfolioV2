@@ -1,10 +1,11 @@
+"use client";
 import { AcademicCapIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import React from "react";
+import { forwardRef } from "react";
 
-export const MyEducation = () => {
+export const MyEducation = forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <div className="card lg:card-side bg-base-100 shadow-xl w-full md:w-1/4">
+    <div ref={ref} className="card lg:card-side bg-base-100 shadow-xl w-full md:w-1/4">
       <div className="card-body max-w-md">
         <h2 className="card-title text-primary">
           <AcademicCapIcon className="w-6 h-6" /> My Education
@@ -32,4 +33,6 @@ export const MyEducation = () => {
       </div>
     </div>
   );
-};
+});
+
+MyEducation.displayName = "MyEducation";

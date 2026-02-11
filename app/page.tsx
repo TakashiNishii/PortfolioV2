@@ -1,26 +1,21 @@
 import { Suspense } from "react";
-import { AboutMe } from "./components/about/AboutMe";
 import { Navbar } from "./components/header/Navbar";
-import { HomeSection } from "./components/home/HomeSection";
-import { Skills } from "./components/skills/Skills";
-import { MyProjects } from "./components/projects/MyProjects";
-import { ContactSection } from "./components/contact/ContactSection";
-import { Footer } from "./components/footer/Footer";
+import BodyContent from "./components/contact/BodyContent";
+import { Preloader } from "./components/common/Preloader";
 
 export default function Home() {
+
   return (
     <main className="flex bg-base-100 min-h-screen flex-col items-center">
-      <Suspense fallback={<div>Loading...</div>}>
-        <Navbar />
-      </Suspense>
-
-      <HomeSection />
-      <AboutMe />
-      <Skills />
-      <MyProjects />
-
-      <ContactSection />
-      <Footer />
+      <Preloader />
+      <div id="navbar-wrapper" className="opacity-0">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Navbar />
+        </Suspense>
+      </div>
+      <div id="main-content" className="opacity-0">
+        <BodyContent />
+      </div>
     </main>
   );
 }

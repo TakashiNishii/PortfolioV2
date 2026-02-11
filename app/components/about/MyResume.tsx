@@ -1,11 +1,12 @@
+"use client";
 import { BriefcaseIcon } from "@heroicons/react/24/outline";
 import { ArrowDownTrayIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import React from "react";
+import { forwardRef } from "react";
 
-export const MyResume = () => {
+export const MyResume = forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <div className="card lg:card-side bg-base-100 shadow-xl w-full md:w-1/2">
+    <div ref={ref} className="card lg:card-side bg-base-100 shadow-xl w-full md:w-1/2">
       <div className="card-body justify-center ">
         <h2 className="card-title text-primary">
           <BriefcaseIcon className="h-6 w-6" />
@@ -41,4 +42,6 @@ export const MyResume = () => {
       </div>
     </div>
   );
-};
+});
+
+MyResume.displayName = "MyResume";

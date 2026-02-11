@@ -9,6 +9,7 @@
   font-weight: 100;
   font-style: normal;
 }
+
 .exo-2-light {
   font-family: "Chakra Petch", sans-serif;
   font-weight: 300;
@@ -63,10 +64,16 @@
   font-style: italic;
 }
 
-html{
+html {
   font-family: 'Chakra Petch';
 }
 
 .btn {
   text-transform: none;
+}
+
+/* SplitText-like characters used for letter-by-letter animations */
+.split-char {
+  display: inline-block;
+  white-space: pre;
 }

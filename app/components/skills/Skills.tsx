@@ -2,13 +2,31 @@
 import { useState } from "react";
 import { SkillsList } from "./SkillsList";
 import { Divider } from "../common/Divider";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { animateSplitText } from "../common/textAnimation";
 
 export const Skills = () => {
   const [filter, setFilter] = useState("All");
+  const title = useRef<HTMLHeadingElement>(null);
+  const subtitle = useRef<HTMLHeadingElement>(null);
+
+  useGSAP(() => {
+    if (title.current) {
+      animateSplitText(title.current);
+    }
+    if (subtitle.current) {
+      setTimeout(() => {
+        animateSplitText(subtitle.current, { stagger: 0.02 });
+      }, 200);
+    }
+
+  }, [title, subtitle]);
+
   return (
     <div className="flex flex-col w-full justify-center items-center gap-4 mt-16">
-      <h2 className="text-4xl font-bold text-primary">My Skills</h2>
-      <h3 className="text-lg text-base-200 text-center">
+      <h2 className="text-4xl font-bold text-primary" ref={title}>My Skills</h2>
+      <h3 className="text-lg text-base-200 text-center" ref={subtitle}>
         Here are all the technologies I use to make my projects.
       </h3>
 
