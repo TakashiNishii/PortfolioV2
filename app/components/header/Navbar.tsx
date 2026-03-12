@@ -13,11 +13,13 @@ import classNames from "classnames";
 import { UserIcon, DocumentTextIcon } from "@heroicons/react/24/outline";
 import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
 import { initScrollSmoother } from "../../../gsap";
+import { useLanguage } from "../provider/LanguageProviderWrapper";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const refCheckbox = useRef<HTMLInputElement>(null);
   const [section, setSection] = useState("home");
+  const { t, toggleLanguage } = useLanguage();
 
   useEffect(() => {
     if (refCheckbox.current) {
@@ -49,23 +51,37 @@ export const Navbar = () => {
         <Logo />
         <div className="hidden flex-row gap-4 text-lg text-white md:flex">
           <button className="hover:text-accent" onClick={() => scrollToSection("home")}>
-            Home
+            {t("navbar.home")}
           </button>
           <button className="hover:text-accent" onClick={() => scrollToSection("about")}>
-            About
+            {t("navbar.about")}
           </button>
           <button className="hover:text-accent" onClick={() => scrollToSection("skills")}>
-            Skills
+            {t("navbar.skills")}
           </button>
           <button className="hover:text-accent" onClick={() => scrollToSection("projects")}>
-            Projects
+            {t("navbar.projects")}
           </button>
           <button className="hover:text-accent" onClick={() => scrollToSection("contact")}>
-            Contact
+            {t("navbar.contact")}
+          </button>
+          <button
+            type="button"
+            className="btn btn-sm btn-ghost text-xs md:text-sm"
+            onClick={toggleLanguage}
+          >
+            {t("navbar.languageToggle")}
           </button>
           <ThemeChanger />
         </div>
         <div className="flex flex-row gap-4 md:hidden">
+          <button
+            type="button"
+            className="btn btn-sm btn-ghost text-xs"
+            onClick={toggleLanguage}
+          >
+            {t("navbar.languageToggle")}
+          </button>
           <ThemeChanger />
           <div className="swap swap-rotate ">
             <input type="checkbox" ref={refCheckbox} />
@@ -88,21 +104,21 @@ export const Navbar = () => {
             onClick={() => scrollToSection("home")}
           >
             <HomeIcon className="h-5 w-5" />
-            Home
+            {t("navbar.home")}
           </button>
           <button
             className={classNames(section === "about" && "active bg-primary")}
             onClick={() => scrollToSection("about")}
           >
             <UserIcon className="h-5 w-5" />
-            About
+            {t("navbar.about")}
           </button>
           <button
             className={classNames(section === "skills" && "active bg-primary")}
             onClick={() => scrollToSection("skills")}
           >
             <DocumentTextIcon className="h-5 w-5" />
-            Skills
+            {t("navbar.skills")}
           </button>
           <button
             className={classNames(
@@ -111,14 +127,14 @@ export const Navbar = () => {
             onClick={() => scrollToSection("projects")}
           >
             <PhotoIcon className="h-5 w-5" />
-            Projects
+            {t("navbar.projects")}
           </button>
           <button
             className={classNames(section === "contact" && "active bg-primary")}
             onClick={() => scrollToSection("contact")}
           >
             <PaperAirplaneIcon className="h-5 w-5" />
-            Contact
+            {t("navbar.contact")}
           </button>
         </div>
       )}

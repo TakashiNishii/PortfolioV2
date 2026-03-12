@@ -12,6 +12,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from 'gsap';
 import { animateSplitText } from '../common/textAnimation';
 import { initScrollSmoother } from "../../../gsap";
+import { useLanguage } from "../provider/LanguageProviderWrapper";
 
 export const HomeSection = () => {
   const { theme } = useTheme();
@@ -19,6 +20,7 @@ export const HomeSection = () => {
   const image = useRef<HTMLDivElement>(null);
   const socialIcons = useRef<HTMLDivElement>(null);
   const infoText = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
   const handleContactClick = () => {
     const smoother = initScrollSmoother();
     const selector = "#contact";
@@ -128,17 +130,17 @@ export const HomeSection = () => {
         </div>
 
         <div className="flex flex-col gap-1 w-full text-center items-center md:text-start md:items-start md:w-1/2 md:gap-4">
-          <h2 className="text-2xl font-semibold text-primary">{`Hello, I'm`}</h2>
+          <h2 className="text-2xl font-semibold text-primary">{t("home.greeting")}</h2>
           <h1 className="text-4xl font-bold text-primary" ref={infoText} id="splitText">
             Ygor Takashi Nishi
           </h1>
           <div className="flex flex-col lg:flex-row">
-            <h2 className="text-2xl text-primary">Fullstack Developer</h2>
+            <h2 className="text-2xl text-primary">{t("home.fullstack")}</h2>
             <div className="divider divider-vertical lg:divider-horizontal my-0" />
-            <h2 className="text-2xl text-primary">Mobile Developer</h2>
+            <h2 className="text-2xl text-primary">{t("home.mobile")}</h2>
           </div>
           <button onClick={handleContactClick} className="btn btn-wide btn-primary">
-            Contact me
+            {t("home.contactButton")}
           </button>
         </div>
       </div>
@@ -147,7 +149,7 @@ export const HomeSection = () => {
         classNamesExtra="divider-secondary text-primary "
       >
         <span>
-          🖱️ Scroll Down <kbd className="kbd kbd-sm bg-secondary">▼</kbd>
+          {t("home.scrollDown")} <kbd className="kbd kbd-sm bg-secondary">▼</kbd>
         </span>
       </Divider>
     </>

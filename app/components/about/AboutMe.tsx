@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { animateSplitText } from "../common/textAnimation";
 import gsap from "gsap";
+import { useLanguage } from "../provider/LanguageProviderWrapper";
 
 export const AboutMe = () => {
   const title = useRef<HTMLHeadingElement>(null);
@@ -15,6 +16,7 @@ export const AboutMe = () => {
   const myResumeRef = useRef<HTMLDivElement>(null);
   const myEducationRef = useRef<HTMLDivElement>(null);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   useGSAP(() => {
     // Aplicar animação no título
@@ -56,9 +58,11 @@ export const AboutMe = () => {
 
   return (
     <div id="about" className="flex flex-col w-full justify-center items-center gap-4 mt-16">
-      <h2 className="text-4xl font-bold text-primary" ref={title}>About me</h2>
+      <h2 className="text-4xl font-bold text-primary" ref={title}>
+        {t("about.title")}
+      </h2>
       <h3 className="text-lg text-base-200" ref={subtitle}>
-        Get to know a little more about me.
+        {t("about.subtitle")}
       </h3>
 
       <PersonalInfo ref={personalInfoRef} />

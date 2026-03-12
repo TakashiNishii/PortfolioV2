@@ -7,10 +7,12 @@ import { InstagramIcon } from "../icons/InstagramIcon";
 import { LinkedinIcon } from "../icons/LinkedinIcon";
 import { GithubIcon } from "../icons/GithubIcon";
 import { WhatsappIcon } from "../icons/WhatsappIcon";
+import { useLanguage } from "../provider/LanguageProviderWrapper";
 
 export const Footer = () => {
   const { theme, setTheme } = useTheme();
   const [themeProfile, setThemeProfile] = useState(theme);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setThemeProfile(theme);
@@ -19,7 +21,7 @@ export const Footer = () => {
     <footer className="footer items-center p-4 bg-primary  mt-16">
       <aside className="items-center text-center justify-center flex flex-col w-full md:flex-row md:justify-start ">
         <Logo />
-        <p>Copyright © 2026 - All right reserved</p>
+        <p>{t("footer.copyright")}</p>
       </aside>
       <nav className="flex flex-row justify-center w-full gap-4 md:justify-end">
         <Link href={"https://www.instagram.com/ytakashin/"} target="_blank">

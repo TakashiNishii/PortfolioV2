@@ -7,10 +7,12 @@ import Link from "next/link";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { animateSplitText } from "../common/textAnimation";
+import { useLanguage } from "../provider/LanguageProviderWrapper";
 
 export const ContactSection = () => {
   const title = useRef<HTMLHeadingElement>(null);
   const subtitle = useRef<HTMLHeadingElement>(null);
+  const { t } = useLanguage();
 
   useGSAP(() => {
     if (title.current) {
@@ -26,9 +28,11 @@ export const ContactSection = () => {
 
   return (
     <div id="contact" className="flex flex-col w-full justify-center items-center gap-4 mt-16">
-      <h2 className="text-4xl font-bold text-primary" ref={title}>Contacts</h2>
+      <h2 className="text-4xl font-bold text-primary" ref={title}>
+        {t("contact.title")}
+      </h2>
       <h3 className="text-lg text-base-200 text-center" ref={subtitle}>
-        If you want to talk to me, here are some ways to contact me.
+        {t("contact.subtitle")}
       </h3>
 
       <div className="flex flex-col gap-2 justify-center items-center w-full md:flex-row">
@@ -37,14 +41,14 @@ export const ContactSection = () => {
             <EnvelopeIcon className="w-24 h-24 text-primary" />
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title">Email</h2>
+            <h2 className="card-title">{t("contact.emailTitle")}</h2>
             <p>ygortn14@gmail.com</p>
             <div className="card-actions">
               <Link
                 href="mailto:ygortn14@gmail.com"
                 className="btn-link flex flex-row hover:text-accent"
               >
-                Send an email
+                {t("contact.emailCta")}
                 <PaperAirplaneIcon className="w-6 h-6 ml-2" />
               </Link>
             </div>
@@ -56,7 +60,7 @@ export const ContactSection = () => {
             <ChatBubbleOvalLeftEllipsisIcon className="w-24 h-24 text-primary" />
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title">Whatsapp</h2>
+            <h2 className="card-title">{t("contact.whatsappTitle")}</h2>
             <p>+55 18 99668-2139</p>
             <div className="card-actions">
               <Link
@@ -64,7 +68,7 @@ export const ContactSection = () => {
                 target="_blank"
                 className="btn-link flex flex-row hover:text-accent"
               >
-                Send a message
+                {t("contact.whatsappCta")}
                 <PaperAirplaneIcon className="w-6 h-6 ml-2" />
               </Link>
             </div>

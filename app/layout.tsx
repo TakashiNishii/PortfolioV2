@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProviderWrapper } from "./components/provider/ThemeProviderWrapper";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { LanguageProviderWrapper } from "./components/provider/LanguageProviderWrapper";
 
 const expo2 = Chakra_Petch({
   subsets: ["latin"],
@@ -33,9 +34,11 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning={true}>
       <body className={expo2.className}>
-        <div className="antialiased bg-base-300 h-screen">
-          <ThemeProviderWrapper>{children}</ThemeProviderWrapper>
-        </div>
+        <LanguageProviderWrapper>
+          <div className="antialiased bg-base-300 h-screen">
+            <ThemeProviderWrapper>{children}</ThemeProviderWrapper>
+          </div>
+        </LanguageProviderWrapper>
         <Analytics />
         <SpeedInsights />
       </body>

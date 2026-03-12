@@ -3,29 +3,26 @@ import { BriefcaseIcon } from "@heroicons/react/24/outline";
 import { ArrowDownTrayIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { forwardRef } from "react";
+import { useLanguage } from "../provider/LanguageProviderWrapper";
 
 export const MyResume = forwardRef<HTMLDivElement>((props, ref) => {
+  const { t } = useLanguage();
+
   return (
     <div ref={ref} className="card lg:card-side bg-base-100 shadow-xl w-full md:w-1/2">
       <div className="card-body justify-center ">
         <h2 className="card-title text-primary">
           <BriefcaseIcon className="h-6 w-6" />
-          My Resume
+          {t("about.resumeTitle")}
         </h2>
         <p>
-          As a developer with a few years of experience, I have worked in
-          several projects that have helped me to improve my skills and
-          knowledge. And I continue to be passionate about learning new
-          technologies and methodologies.
+          {t("about.resumeParagraph1")}
         </p>
         <p>
-          I have worked in frontend, backend and mobile projects, and in all
-          projects I use to work with agile methodologies, like Scrum and
-          Kanban.
+          {t("about.resumeParagraph2")}
         </p>
         <p>
-          If you want to know more about my professional life, you can check my
-          resume.
+          {t("about.resumeParagraph3")}
         </p>
 
         <div className="card-actions justify-center md:justify-start">
@@ -36,7 +33,7 @@ export const MyResume = forwardRef<HTMLDivElement>((props, ref) => {
             className="btn btn-primary"
           >
             <ArrowDownTrayIcon className="h-6 w-6" />
-            Download CV
+            {t("about.resumeDownload")}
           </Link>
         </div>
       </div>

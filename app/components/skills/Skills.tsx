@@ -5,11 +5,13 @@ import { Divider } from "../common/Divider";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { animateSplitText } from "../common/textAnimation";
+import { useLanguage } from "../provider/LanguageProviderWrapper";
 
 export const Skills = () => {
   const [filter, setFilter] = useState("All");
   const title = useRef<HTMLHeadingElement>(null);
   const subtitle = useRef<HTMLHeadingElement>(null);
+  const { t } = useLanguage();
 
   useGSAP(() => {
     if (title.current) {
@@ -23,11 +25,33 @@ export const Skills = () => {
 
   }, [title, subtitle]);
 
+  const getFilterLabel = (value: string) => {
+    switch (value) {
+      case "Frontend":
+        return t("skills.filterFrontend");
+      case "Backend":
+        return t("skills.filterBackend");
+      case "Mobile":
+        return t("skills.filterMobile");
+      case "Database":
+        return t("skills.filterDatabase");
+      case "Cloud":
+        return t("skills.filterCloud");
+      case "Others":
+        return t("skills.filterOthers");
+      case "All":
+      default:
+        return t("skills.filterAll");
+    }
+  };
+
   return (
     <div id="skills" className="flex flex-col w-full justify-center items-center gap-4 mt-16">
-      <h2 className="text-4xl font-bold text-primary" ref={title}>My Skills</h2>
+      <h2 className="text-4xl font-bold text-primary" ref={title}>
+        {t("skills.title")}
+      </h2>
       <h3 className="text-lg text-base-200 text-center" ref={subtitle}>
-        Here are all the technologies I use to make my projects.
+        {t("skills.subtitle")}
       </h3>
 
       <div className="flex flex-col border border-accent rounded-lg w-full md:w-11/12 pr-1 md:flex-row">
@@ -35,8 +59,10 @@ export const Skills = () => {
           <div className="form-control ">
             <label className="label">
               <span className="label-text text-base ">
-                Filter by:
-                <span className="font-bold text-accent ml-1">{filter}</span>
+                {t("skills.filterBy")}
+                <span className="font-bold text-accent ml-1">
+                  {getFilterLabel(filter)}
+                </span>
               </span>
             </label>
             <label className="label justify-start cursor-pointer gap-2">
@@ -47,7 +73,9 @@ export const Skills = () => {
                 className="radio radio-primary"
                 onClick={() => setFilter("All")}
               />
-              <span className="label-text font-bold">All</span>
+              <span className="label-text font-bold">
+                {t("skills.filterAll")}
+              </span>
             </label>
 
             <label className="label justify-start cursor-pointer gap-2">
@@ -58,7 +86,9 @@ export const Skills = () => {
                 className="radio radio-primary"
                 onClick={() => setFilter("Frontend")}
               />
-              <span className="label-text font-bold">Frontend</span>
+              <span className="label-text font-bold">
+                {t("skills.filterFrontend")}
+              </span>
             </label>
 
             <label className="label justify-start cursor-pointer gap-2">
@@ -69,7 +99,9 @@ export const Skills = () => {
                 className="radio radio-primary"
                 onClick={() => setFilter("Backend")}
               />
-              <span className="label-text font-bold">Backend</span>
+              <span className="label-text font-bold">
+                {t("skills.filterBackend")}
+              </span>
             </label>
 
             <label className="label justify-start cursor-pointer gap-2">
@@ -80,7 +112,9 @@ export const Skills = () => {
                 className="radio radio-primary"
                 onClick={() => setFilter("Mobile")}
               />
-              <span className="label-text font-bold">Mobile</span>
+              <span className="label-text font-bold">
+                {t("skills.filterMobile")}
+              </span>
             </label>
 
             <label className="label justify-start cursor-pointer gap-2">
@@ -91,7 +125,9 @@ export const Skills = () => {
                 className="radio radio-primary"
                 onClick={() => setFilter("Database")}
               />
-              <span className="label-text font-bold">Database</span>
+              <span className="label-text font-bold">
+                {t("skills.filterDatabase")}
+              </span>
             </label>
 
             <label className="label justify-start cursor-pointer gap-2">
@@ -102,7 +138,9 @@ export const Skills = () => {
                 className="radio radio-primary"
                 onClick={() => setFilter("Cloud")}
               />
-              <span className="label-text font-bold">Cloud</span>
+              <span className="label-text font-bold">
+                {t("skills.filterCloud")}
+              </span>
             </label>
 
             <label className="label justify-start cursor-pointer gap-2">
@@ -113,29 +151,32 @@ export const Skills = () => {
                 className="radio radio-primary"
                 onClick={() => setFilter("Others")}
               />
-              <span className="label-text font-bold">Others</span>
+              <span className="label-text font-bold">
+                {t("skills.filterOthers")}
+              </span>
             </label>
           </div>
         </div>
         <select
           onChange={(e) => setFilter(e.target.value)}
           className="select select-bordered w-full md:hidden"
+          defaultValue={"All"}
         >
-          <option value={"All"} disabled selected>
-            All
+          <option value={"All"} disabled>
+            {t("skills.filterAll")}
           </option>
-          <option value={"Frontend"}>Frontend</option>
-          <option value={"Backend"}>Backend</option>
-          <option value={"Mobile"}>Mobile</option>
-          <option value={"Database"}>Database</option>
-          <option value={"Cloud"}>Cloud</option>
+          <option value={"Frontend"}>{t("skills.filterFrontend")}</option>
+          <option value={"Backend"}>{t("skills.filterBackend")}</option>
+          <option value={"Mobile"}>{t("skills.filterMobile")}</option>
+          <option value={"Database"}>{t("skills.filterDatabase")}</option>
+          <option value={"Cloud"}>{t("skills.filterCloud")}</option>
         </select>
 
         <SkillsList filter={filter} setFilter={setFilter} />
       </div>
 
       <h3 className="text-lg text-accent text-center">
-        And I still learning more technologies to improve my skills. 🚀
+        {t("skills.learningMore")}
       </h3>
 
       <Divider id="projects" />
