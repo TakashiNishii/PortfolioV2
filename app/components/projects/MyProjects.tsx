@@ -29,15 +29,6 @@ export const MyProjects = () => {
           duration: 0.8,
           ease: "power3.out",
           immediateRender: false,
-          scrollTrigger: {
-            trigger: projectListRef.current,
-            start: "top 70%",
-            end: "bottom 50%",
-            toggleActions: "play none none reverse",
-            scroller: "#smooth-wrapper",
-            scrub: true,
-            invalidateOnRefresh: true,
-          },
         }
       );
     }

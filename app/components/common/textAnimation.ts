@@ -6,9 +6,6 @@ interface TextAnimationOptions {
   duration?: number;
   ease?: string;
   stagger?: number;
-  start?: string;
-  end?: string;
-  scroller?: string;
 }
 
 /**
@@ -29,9 +26,6 @@ export function animateSplitText(
     duration = 0.6,
     ease = "power3.out",
     stagger = 0.03,
-    start = "top 80%",
-    end = "bottom 60%",
-    scroller = "#smooth-wrapper",
   } = options;
 
   // Salvar texto original
@@ -51,7 +45,7 @@ export function animateSplitText(
 
   const chars = element.querySelectorAll(".split-char");
 
-  // Aplicar animação
+  // Aplicar animação na montagem, sem depender de scroll
   gsap.fromTo(
     chars,
     { y, opacity },
@@ -61,13 +55,6 @@ export function animateSplitText(
       duration,
       ease,
       stagger,
-      scrollTrigger: {
-        trigger: element,
-        start,
-        end,
-        toggleActions: "play none none reverse",
-        scroller,
-      },
     }
   );
 

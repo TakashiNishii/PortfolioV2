@@ -49,15 +49,6 @@ export const AboutMe = () => {
           ease: "power3.out",
           stagger: 0.2,
           immediateRender: false,
-          scrollTrigger: {
-            trigger: personalInfoRef.current,
-            start: "top 70%",
-            end: "bottom 50%",
-            toggleActions: "play none none reverse",
-            scroller: "#smooth-wrapper",
-            scrub: true,
-            invalidateOnRefresh: true,
-          },
         }
       );
     }

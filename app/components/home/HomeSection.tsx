@@ -37,13 +37,6 @@ export const HomeSection = () => {
           opacity: 1,
           duration: 1.5,
           ease: "power3.out",
-          scrollTrigger: {
-            trigger: socialIcons.current,
-            start: "top 80%",
-            end: "bottom 60%",
-            toggleActions: "play none none reverse",
-            scroller: "#smooth-wrapper",
-          },
         }
       );
     }
@@ -56,13 +49,6 @@ export const HomeSection = () => {
           opacity: 1,
           duration: 1.5,
           ease: "power3.out",
-          scrollTrigger: {
-            trigger: image.current,
-            start: "top 80%",
-            end: "bottom 60%",
-            toggleActions: "play none none reverse",
-            scroller: "#smooth-wrapper",
-          },
         }
       );
     }
