@@ -25,7 +25,7 @@ export const ContactSection = () => {
   }, [title, subtitle]);
 
   return (
-    <div className="flex flex-col w-full justify-center items-center gap-4 mt-16">
+    <div id="contact" className="flex flex-col w-full justify-center items-center gap-4 mt-16">
       <h2 className="text-4xl font-bold text-primary" ref={title}>Contacts</h2>
       <h3 className="text-lg text-base-200 text-center" ref={subtitle}>
         If you want to talk to me, here are some ways to contact me.

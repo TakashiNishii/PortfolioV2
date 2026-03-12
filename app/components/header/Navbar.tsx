@@ -7,19 +7,16 @@ import {
   PhotoIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import Link from "next/link";
 import { Logo } from "./Logo";
 import { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
-import { useRouter, useSearchParams } from "next/navigation";
 import { UserIcon, DocumentTextIcon } from "@heroicons/react/24/outline";
-import { LanguageIcon, PaperAirplaneIcon } from "@heroicons/react/24/solid";
+import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
+import { initScrollSmoother } from "../../../gsap";
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const refCheckbox = useRef<HTMLInputElement>(null);
-  const router = useRouter();
-  const searchParams = useSearchParams();
   const [section, setSection] = useState("home");
 
   useEffect(() => {
@@ -28,33 +25,44 @@ export const Navbar = () => {
     }
   }, [open]);
 
-  useEffect(() => {
-    if (searchParams.get("section")) {
-      setSection(searchParams.get("section") ?? "home");
-      router.push(`/#${searchParams.get("section")}`);
+  const scrollToSection = (target: string) => {
+    setSection(target);
+
+    const smoother = initScrollSmoother();
+    const selector = target === "home" ? "#home" : `#${target}`;
+
+    if (smoother) {
+      smoother.scrollTo(selector, true);
+    } else if (typeof window !== "undefined") {
+      const el = document.querySelector(selector);
+      if (el) {
+        (el as HTMLElement).scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
-  }, [router, searchParams]);
+
+    setOpen(false);
+  };
 
   return (
     <>
       <div className="navbar shadow-xl bg-primary fixed top-0 left-0 right-0 md:flex gap-2 p-4 w-full justify-between z-50">
         <Logo />
         <div className="hidden flex-row gap-4 text-lg text-white md:flex">
-          <Link className="hover:text-accent" href="/?section=home">
+          <button className="hover:text-accent" onClick={() => scrollToSection("home")}>
             Home
-          </Link>
-          <Link className="hover:text-accent" href="/?section=about">
+          </button>
+          <button className="hover:text-accent" onClick={() => scrollToSection("about")}>
             About
-          </Link>
-          <Link className="hover:text-accent" href="/?section=skills">
+          </button>
+          <button className="hover:text-accent" onClick={() => scrollToSection("skills")}>
             Skills
-          </Link>
-          <Link className="hover:text-accent" href="/?section=projects">
+          </button>
+          <button className="hover:text-accent" onClick={() => scrollToSection("projects")}>
             Projects
-          </Link>
-          <Link className="hover:text-accent" href="/?section=contact">
+          </button>
+          <button className="hover:text-accent" onClick={() => scrollToSection("contact")}>
             Contact
-          </Link>
+          </button>
           <ThemeChanger />
         </div>
         <div className="flex flex-row gap-4 md:hidden">
@@ -75,43 +83,43 @@ export const Navbar = () => {
 
       {open && (
         <div className="btm-nav font-bold z-50  bg-secondary md:hidden">
-          <Link
+          <button
             className={classNames(section === "home" && "active bg-primary")}
-            href="/?section=home"
+            onClick={() => scrollToSection("home")}
           >
             <HomeIcon className="h-5 w-5" />
             Home
-          </Link>
-          <Link
+          </button>
+          <button
             className={classNames(section === "about" && "active bg-primary")}
-            href="/?section=about"
+            onClick={() => scrollToSection("about")}
           >
             <UserIcon className="h-5 w-5" />
             About
-          </Link>
-          <Link
+          </button>
+          <button
             className={classNames(section === "skills" && "active bg-primary")}
-            href="/?section=skills"
+            onClick={() => scrollToSection("skills")}
           >
             <DocumentTextIcon className="h-5 w-5" />
             Skills
-          </Link>
-          <Link
+          </button>
+          <button
             className={classNames(
               section === "projects" && "active bg-primary"
             )}
-            href="/?section=projects"
+            onClick={() => scrollToSection("projects")}
           >
             <PhotoIcon className="h-5 w-5" />
             Projects
-          </Link>
-          <Link
+          </button>
+          <button
             className={classNames(section === "contact" && "active bg-primary")}
-            href="/?section=contact"
+            onClick={() => scrollToSection("contact")}
           >
             <PaperAirplaneIcon className="h-5 w-5" />
             Contact
-          </Link>
+          </button>
         </div>
       )}
     </>

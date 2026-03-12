@@ -10,9 +10,10 @@ import { initScrollSmoother } from '../../../gsap'
 
 const BodyContent = () => {
   useEffect(() => {
+    // inicia o ScrollSmoother depois do preloader
     const timer = setTimeout(() => {
       initScrollSmoother();
-    }, 2400); // 2s preloader + 0.4s fade out
+    }, 2400);
 
     return () => {
       clearTimeout(timer);
@@ -24,12 +25,11 @@ const BodyContent = () => {
       id="smooth-wrapper"
       className='flex flex-col w-full'
     >
-      <div id="smooth-content" >
+      <div id="smooth-content">
         <HomeSection />
         <AboutMe />
         <Skills />
         <MyProjects />
-
         <ContactSection />
         <Footer />
       </div>

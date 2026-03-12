@@ -11,6 +11,7 @@ import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from 'gsap';
 import { animateSplitText } from '../common/textAnimation';
+import { initScrollSmoother } from "../../../gsap";
 
 export const HomeSection = () => {
   const { theme } = useTheme();
@@ -18,6 +19,19 @@ export const HomeSection = () => {
   const image = useRef<HTMLDivElement>(null);
   const socialIcons = useRef<HTMLDivElement>(null);
   const infoText = useRef<HTMLDivElement>(null);
+  const handleContactClick = () => {
+    const smoother = initScrollSmoother();
+    const selector = "#contact";
+
+    if (smoother) {
+      smoother.scrollTo(selector, true);
+    } else if (typeof window !== "undefined") {
+      const el = document.querySelector(selector);
+      if (el) {
+        (el as HTMLElement).scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  };
 
   useEffect(() => {
     setThemeProfile(theme);
@@ -123,9 +137,9 @@ export const HomeSection = () => {
             <div className="divider divider-vertical lg:divider-horizontal my-0" />
             <h2 className="text-2xl text-primary">Mobile Developer</h2>
           </div>
-          <Link href={"/?section=contact"} className="btn btn-wide btn-primary">
+          <button onClick={handleContactClick} className="btn btn-wide btn-primary">
             Contact me
-          </Link>
+          </button>
         </div>
       </div>
       <Divider
